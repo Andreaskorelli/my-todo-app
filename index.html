@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мои задачи</title>
+
+  <h1>Мои задачи</h1>
+  <input id="task" placeholder="Новая задача">
+  <button id="add">Добавить</button>
+  <ul id="list"></ul>
+
+  <script>
+    const input = document.querySelector("#task");
+    const list = document.querySelector("#list");
+
+    document.querySelector("#add").onclick = () => {
+      if (!input.value.trim()) return;
+
+      const item = document.createElement("li");
+      item.textContent = input.value;
+      item.onclick = () => item.remove();
+
+      list.appendChild(item);
+      input.value = "";
+    };
+  </script>
+</html>
